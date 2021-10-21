@@ -1,0 +1,258 @@
+local Customers = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local Titles = Instance.new("Frame")
+local UIGradient_2 = Instance.new("UIGradient")
+local Title1 = Instance.new("TextLabel")
+local Title2 = Instance.new("TextLabel")
+local PinCode = Instance.new("Frame")
+local UIGradient_3 = Instance.new("UIGradient")
+local Pinbox = Instance.new("TextBox")
+local Comfirm = Instance.new("TextButton")
+local UIGradient_4 = Instance.new("UIGradient")
+local CodeTut = Instance.new("TextButton")
+local UIGradient_5 = Instance.new("UIGradient")
+local Auto = Instance.new("Frame")
+local UIGradient_6 = Instance.new("UIGradient")
+local Auto_Drop = Instance.new("TextButton")
+local Anti_AFK = Instance.new("TextButton")
+local Safe_Zone = Instance.new("TextButton")
+local ComingSoon = Instance.new("TextLabel")
+
+Customers.Name = "Customers"
+Customers.Parent = game.CoreGui
+Customers.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = Customers
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.364048511, 0, 0.336048633, 0)
+Main.Size = UDim2.new(0.287549049, 0, 0.326394826, 0)
+Main.Active = true
+Main.Draggable = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 195, 53))}
+UIGradient.Rotation = 90
+UIGradient.Parent = Main
+
+Titles.Name = "Titles"
+Titles.Parent = Main
+Titles.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Titles.BorderSizePixel = 0
+Titles.Position = UDim2.new(0, 0, -0.135332346, 0)
+Titles.Size = UDim2.new(1.00000024, 0, 0.109778449, 0)
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 157, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 255, 255))}
+UIGradient_2.Rotation = 55
+UIGradient_2.Parent = Titles
+
+Title1.Name = "Title1"
+Title1.Parent = Titles
+Title1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title1.BackgroundTransparency = 1.000
+Title1.Size = UDim2.new(0.468172908, 0, 1.00000036, 0)
+Title1.Font = Enum.Font.GothamBold
+Title1.Text = "Droppers"
+Title1.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title1.TextScaled = true
+Title1.TextSize = 14.000
+Title1.TextWrapped = true
+
+Title2.Name = "Title2"
+Title2.Parent = Titles
+Title2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title2.BackgroundTransparency = 1.000
+Title2.Position = UDim2.new(0.52990973, 0, 0, 0)
+Title2.Size = UDim2.new(0.468172908, 0, 1.00000036, 0)
+Title2.Font = Enum.Font.GothamBold
+Title2.Text = "For Customers"
+Title2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title2.TextScaled = true
+Title2.TextSize = 14.000
+Title2.TextWrapped = true
+
+PinCode.Name = "PinCode"
+PinCode.Parent = Main
+PinCode.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PinCode.BorderSizePixel = 0
+PinCode.Size = UDim2.new(1, 0, 0.999999881, 0)
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 195, 53))}
+UIGradient_3.Rotation = 90
+UIGradient_3.Parent = PinCode
+
+Pinbox.Name = "Pinbox"
+Pinbox.Parent = PinCode
+Pinbox.BackgroundColor3 = Color3.fromRGB(255, 139, 38)
+Pinbox.BorderSizePixel = 0
+Pinbox.Position = UDim2.new(0.255300701, 0, 0.263146281, 0)
+Pinbox.Size = UDim2.new(0.487481505, 0, 0.137592331, 0)
+Pinbox.Font = Enum.Font.Highway
+Pinbox.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Pinbox.PlaceholderText = "Pin Code"
+Pinbox.Text = ""
+Pinbox.TextColor3 = Color3.fromRGB(0, 0, 0)
+Pinbox.TextScaled = true
+Pinbox.TextSize = 14.000
+Pinbox.TextWrapped = true
+
+Comfirm.Name = "Comfirm"
+Comfirm.Parent = PinCode
+Comfirm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Comfirm.BorderSizePixel = 0
+Comfirm.Position = UDim2.new(0.296063006, 0, 0.537570238, 0)
+Comfirm.Size = UDim2.new(0.407620847, 0, 0.137999997, 0)
+Comfirm.Font = Enum.Font.SourceSansBold
+Comfirm.Text = "Comfirm"
+Comfirm.TextColor3 = Color3.fromRGB(0, 0, 0)
+Comfirm.TextScaled = true
+Comfirm.TextSize = 14.000
+Comfirm.TextWrapped = true
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 140)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(68, 255, 0))}
+UIGradient_4.Rotation = 90
+UIGradient_4.Parent = Comfirm
+
+CodeTut.Name = "CodeTut"
+CodeTut.Parent = PinCode
+CodeTut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CodeTut.BorderSizePixel = 0
+CodeTut.Position = UDim2.new(0.999749005, 0, 0, 0)
+CodeTut.Size = UDim2.new(0.255298585, 0, 0.0703338236, 0)
+CodeTut.Font = Enum.Font.SourceSansBold
+CodeTut.Text = "Don't know code?"
+CodeTut.TextColor3 = Color3.fromRGB(0, 0, 0)
+CodeTut.TextScaled = true
+CodeTut.TextSize = 14.000
+CodeTut.TextWrapped = true
+CodeTut.MouseButton1Click:connect(function()
+	game.StarterGui:SetCore("SendNotification", {
+		Title = 'To get the code join our discord server.';
+		Text = 'Discord server link has been copy to your clipboard.';
+		Duration = 20;
+	})
+	setclipboard('https://discord.gg/JYPXFWV8wD')
+end)
+
+UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(17, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(6, 160, 255))}
+UIGradient_5.Rotation = 90
+UIGradient_5.Parent = CodeTut
+
+Auto.Name = "Auto"
+Auto.Parent = Main
+Auto.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Auto.BorderSizePixel = 0
+Auto.Size = UDim2.new(1, 0, 0.999999881, 0)
+Auto.Visible = false
+
+UIGradient_6.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 195, 53))}
+UIGradient_6.Rotation = 90
+UIGradient_6.Parent = Auto
+
+Auto_Drop.Name = "Auto_Drop"
+Auto_Drop.Parent = Auto
+Auto_Drop.BackgroundColor3 = Color3.fromRGB(255, 166, 11)
+Auto_Drop.BorderSizePixel = 0
+Auto_Drop.Position = UDim2.new(0.0193084572, 0, 0.0451107882, 0)
+Auto_Drop.Size = UDim2.new(0.285336107, 0, 0.100407675, 0)
+Auto_Drop.Font = Enum.Font.GothamBlack
+Auto_Drop.Text = "Auto Drop(OFF)"
+Auto_Drop.TextColor3 = Color3.fromRGB(0, 0, 0)
+Auto_Drop.TextScaled = true
+Auto_Drop.TextSize = 14.000
+Auto_Drop.TextWrapped = true
+Auto_Drop.MouseButton1Click:connect(function()
+	local toggles = true
+	if toggles == true then
+		wait()
+		local A_1 = "DropMoney"
+		local A_2 = "10000"
+		local Event = game:GetService("ReplicatedStorage").MainEvent
+		Event:FireServer(A_1, A_2)
+		Auto_Drop.Text = "Auto Drop(ON)"
+		wait(1)
+		local A_1 = "TimerMoney"
+		local Event = game:GetService("ReplicatedStorage").MainEvent
+		Event:FireServer(A_1)
+	else
+		wait()
+		Auto_Drop.Text = "Auto Drop(OFF)"
+	end
+end)
+
+Anti_AFK.Name = "Anti_AFK"
+Anti_AFK.Parent = Auto
+Anti_AFK.BackgroundColor3 = Color3.fromRGB(255, 166, 11)
+Anti_AFK.BorderSizePixel = 0
+Anti_AFK.Position = UDim2.new(0.341116071, 0, 0.0451107882, 0)
+Anti_AFK.Size = UDim2.new(0.289626896, 0, 0.100407675, 0)
+Anti_AFK.Font = Enum.Font.GothamBlack
+Anti_AFK.Text = "Anti AFK"
+Anti_AFK.TextColor3 = Color3.fromRGB(0, 0, 0)
+Anti_AFK.TextScaled = true
+Anti_AFK.TextSize = 14.000
+Anti_AFK.TextWrapped = true
+Anti_AFK.MouseButton1Click:connect(function()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Anti - AFK";
+		Text = "Enabled (No timeout)";
+		Duration = 20;
+	})
+end)
+
+Safe_Zone.Name = "Safe_Zone"
+Safe_Zone.Parent = Auto
+Safe_Zone.BackgroundColor3 = Color3.fromRGB(255, 166, 11)
+Safe_Zone.BorderSizePixel = 0
+Safe_Zone.Position = UDim2.new(0.669359863, 0, 0.0451107882, 0)
+Safe_Zone.Size = UDim2.new(0.289626896, 0, 0.100407675, 0)
+Safe_Zone.Font = Enum.Font.GothamBlack
+Safe_Zone.Text = "Safe Zone"
+Safe_Zone.TextColor3 = Color3.fromRGB(0, 0, 0)
+Safe_Zone.TextScaled = true
+Safe_Zone.TextSize = 14.000
+Safe_Zone.TextWrapped = true
+Safe_Zone.MouseButton1Click:connect(function()
+	game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = UDim2.new(-178.906433, 16.6518135, 277.993256, -0.99982208, -8.49790496e-08, -0.0188627671, -8.42272101e-08, 1, -4.06529104e-08, 0.0188627671, -3.90569213e-08, -0.99982208)
+end)
+
+ComingSoon.Name = "ComingSoon"
+ComingSoon.Parent = Auto
+ComingSoon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ComingSoon.BackgroundTransparency = 1.000
+ComingSoon.Position = UDim2.new(0.0858153701, 0, 0.432311714, 0)
+ComingSoon.Size = UDim2.new(0.828118205, 0, 0.135376394, 0)
+ComingSoon.Font = Enum.Font.GothamBlack
+ComingSoon.Text = "Other will be coming soon"
+ComingSoon.TextColor3 = Color3.fromRGB(0, 0, 0)
+ComingSoon.TextScaled = true
+ComingSoon.TextSize = 14.000
+ComingSoon.TextWrapped = true
+
+local function RKKRZU_fake_script()
+	local script = Instance.new('LocalScript', PinCode)
+
+	local PinCode = script.Parent.Pinbox
+	local Comfirm = script.Parent.Comfirm
+	local frame = script.Parent.Parent.Auto
+
+	Comfirm.MouseButton1Click:Connect(function()
+		if PinCode.Text == "12345" then
+			Comfirm.Text = "Correct Code."
+			wait(1)
+			frame.Visible = true
+		else
+			Comfirm.Text = "Wrong Code."
+			wait(1)
+			Comfirm.Text = "Correct?"
+		end
+	end)
+end
+coroutine.wrap(RKKRZU_fake_script)()
