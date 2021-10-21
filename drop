@@ -165,24 +165,14 @@ Auto_Drop.TextWrapped = true
 Auto_Drop.MouseButton1Click:connect(function()
 	local plr = game:GetService('Players').LocalPlayer
 	
-	repeat wait() until plr.Character:FindFirstChild('Humanoid') or plr.Character:FindFirstChild('xxx')
-	local hum = plr.Character:FindFirstChild('Humanoid')
-	while wait() do
-		if plr.Character:FindFirstChild('Humanoid') or plr.Character:FindFirstChild('xxx') then
-			wait(.1)
-			if plr.DataFolder.Currency.Value >= 9800 then 
-				local AMT = 9800
-				game.ReplicatedStorage.MainEvent:FireServer("DropMoney",AMT)
-			elseif plr.DataFolder.Currency.Value <= 100 then 
-				wait()
-			else 
-				local AMT = plr.DataFolder.Currency.Value
-				game.ReplicatedStorage.MainEvent:FireServer("DropMoney",AMT)
-			end
-			if hum.Health > 0 then
-				break
-			end
-		end
+	getgenv().autodrop = plr
+	while true do
+		if not getgenv().autodrop then return end
+		local A_1 = "DropMoney"
+		local A_2 = 10000
+		local Event = game:GetService("ReplicatedStorage").MainEvent
+		Event:FireServer(A_1, A_2)
+		wait()
 	end
 end)
 	
@@ -244,6 +234,27 @@ ComingSoon.TextWrapped = true
 
 local function RKKRZU_fake_script()
 	local script = Instance.new('LocalScript', PinCode)
+	local LocalScript = Instance.new('LocalScript', Main)
+	
+	local frame = script.Parent.Parent.Frame
+	local hotkey = Enum.KeyCode.V
+
+	local UIS = game:GetService("UserInputService")
+	local open = false
+	
+	UIS.InputBegan:Connect(function(key, gp)
+		if key.KeyCode == hotkey then
+			if UIS:GetFocusedTextBox() == nil then
+				if open == false then
+					open = true 
+					frame.Visible = open
+				elseif open == true then
+					open = false
+					frame.Visible = open
+				end
+			end
+		end
+	end)
 
 	local PinCode = script.Parent.Pinbox
 	local Comfirm = script.Parent.Comfirm
