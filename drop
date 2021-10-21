@@ -274,15 +274,11 @@ local function XFEB_fake_script()
 end
 coroutine.wrap(XFEB_fake_script)()
 local function LCHVXU_fake_script()
-	local script = Instance.new('LocalScript', Main)
-
 	local frame = script.Parent.Parent.Main
 	local hotkey = Enum.KeyCode.V
 
 	local UIS = game:GetService("UserInputService")
 	local open = false
-
-
 
 	UIS.InputBegan:Connect(function(key, gp)
 		if key.KeyCode == hotkey then
@@ -302,7 +298,7 @@ coroutine.wrap(LCHVXU_fake_script)()
 local function ISDYVKZ_fake_script()
 	local script = Instance.new('LocalScript', Delete)
 
-	local v_5 = script.Parent.Parent.Parent.Parent.Customers
+	local v_5 = Main
 	
 	script.Parent.MouseButton1Click:Connect(function()
 		v_5:Destroy()
