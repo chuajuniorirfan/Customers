@@ -130,7 +130,7 @@ CodeTut.MouseButton1Click:connect(function()
 	game.StarterGui:SetCore("SendNotification", {
 		Title = 'To get the code join our discord server.';
 		Text = 'Discord server link has been copy to your clipboard.';
-		Duration = 20;
+		Duration = 15;
 	})
 	setclipboard('https://discord.gg/JYPXFWV8wD')
 end)
@@ -157,29 +157,35 @@ Auto_Drop.BorderSizePixel = 0
 Auto_Drop.Position = UDim2.new(0.0193084572, 0, 0.0451107882, 0)
 Auto_Drop.Size = UDim2.new(0.285336107, 0, 0.100407675, 0)
 Auto_Drop.Font = Enum.Font.GothamBlack
-Auto_Drop.Text = "Auto Drop(OFF)"
+Auto_Drop.Text = "Auto Drop"
 Auto_Drop.TextColor3 = Color3.fromRGB(0, 0, 0)
 Auto_Drop.TextScaled = true
 Auto_Drop.TextSize = 14.000
 Auto_Drop.TextWrapped = true
 Auto_Drop.MouseButton1Click:connect(function()
-	local toggles = true
-	if toggles == true then
-		wait()
-		local A_1 = "DropMoney"
-		local A_2 = "10000"
-		local Event = game:GetService("ReplicatedStorage").MainEvent
-		Event:FireServer(A_1, A_2)
-		Auto_Drop.Text = "Auto Drop(ON)"
-		wait(1)
-		local A_1 = "TimerMoney"
-		local Event = game:GetService("ReplicatedStorage").MainEvent
-		Event:FireServer(A_1)
-	else
-		wait()
-		Auto_Drop.Text = "Auto Drop(OFF)"
+	local plr = game:GetService('Players').LocalPlayer
+	
+	repeat wait() until plr.Character:FindFirstChild('Humanoid') or plr.Character:FindFirstChild('xxx')
+	local hum = plr.Character:FindFirstChild('Humanoid')
+	while wait() do
+		if plr.Character:FindFirstChild('Humanoid') or plr.Character:FindFirstChild('xxx') then
+			wait(.1)
+			if plr.DataFolder.Currency.Value >= 9800 then 
+				local AMT = 9800
+				game.ReplicatedStorage.MainEvent:FireServer("DropMoney",AMT)
+			elseif plr.DataFolder.Currency.Value <= 100 then 
+				wait()
+			else 
+				local AMT = plr.DataFolder.Currency.Value
+				game.ReplicatedStorage.MainEvent:FireServer("DropMoney",AMT)
+			end
+			if hum.Health > 0 then
+				break
+			end
+		end
 	end
 end)
+	
 
 Anti_AFK.Name = "Anti_AFK"
 Anti_AFK.Parent = Auto
@@ -220,7 +226,7 @@ Safe_Zone.TextScaled = true
 Safe_Zone.TextSize = 14.000
 Safe_Zone.TextWrapped = true
 Safe_Zone.MouseButton1Click:connect(function()
-	game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = UDim2.new(-178.906433, 16.6518135, 277.993256, -0.99982208, -8.49790496e-08, -0.0188627671, -8.42272101e-08, 1, -4.06529104e-08, 0.0188627671, -3.90569213e-08, -0.99982208)
+	game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-178.906433, 16.6518135, 277.993256, -0.99982208, -8.49790496e-08, -0.0188627671, -8.42272101e-08, 1, -4.06529104e-08, 0.0188627671, -3.90569213e-08, -0.99982208)
 end)
 
 ComingSoon.Name = "ComingSoon"
@@ -247,6 +253,7 @@ local function RKKRZU_fake_script()
 		if PinCode.Text == "12345" then
 			Comfirm.Text = "Correct Code."
 			wait(1)
+			PinCode.Visible = false
 			frame.Visible = true
 		else
 			Comfirm.Text = "Wrong Code."
