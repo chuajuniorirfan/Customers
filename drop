@@ -276,7 +276,7 @@ coroutine.wrap(XFEB_fake_script)()
 local function LCHVXU_fake_script()
 	local script = Instance.new('LocalScript', Main)
 
-	local frame = script.Parent.Parent.Frame
+	local frame = script.Parent.Parent.Main
 	local hotkey = Enum.KeyCode.V
 
 	local UIS = game:GetService("UserInputService")
