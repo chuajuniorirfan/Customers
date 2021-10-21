@@ -18,6 +18,7 @@ local Auto_Drop = Instance.new("TextButton")
 local Anti_AFK = Instance.new("TextButton")
 local Safe_Zone = Instance.new("TextButton")
 local ComingSoon = Instance.new("TextLabel")
+local Delete = Instance.new("TextButton")
 
 Customers.Name = "Customers"
 Customers.Parent = game.CoreGui
@@ -157,13 +158,19 @@ Auto_Drop.BorderSizePixel = 0
 Auto_Drop.Position = UDim2.new(0.0193084572, 0, 0.0451107882, 0)
 Auto_Drop.Size = UDim2.new(0.285336107, 0, 0.100407675, 0)
 Auto_Drop.Font = Enum.Font.GothamBlack
-Auto_Drop.Text = "Auto Drop"
+Auto_Drop.Text = "Auto Drop(OFF)"
 Auto_Drop.TextColor3 = Color3.fromRGB(0, 0, 0)
 Auto_Drop.TextScaled = true
 Auto_Drop.TextSize = 14.000
 Auto_Drop.TextWrapped = true
 Auto_Drop.MouseButton1Click:connect(function()
 	local plr = game:GetService('Players').LocalPlayer
+	
+	if Auto_Drop.Text == "Auto Drop(OFF)" then
+		Auto_Drop.Text = "Auto Drop(ON)"
+	else
+		Auto_Drop.Text = "Auto Drop(OFF)"
+	end
 	
 	getgenv().autodrop = plr
 	while true do
@@ -175,7 +182,6 @@ Auto_Drop.MouseButton1Click:connect(function()
 		wait()
 	end
 end)
-	
 
 Anti_AFK.Name = "Anti_AFK"
 Anti_AFK.Parent = Auto
@@ -232,16 +238,52 @@ ComingSoon.TextScaled = true
 ComingSoon.TextSize = 14.000
 ComingSoon.TextWrapped = true
 
-local function RKKRZU_fake_script()
+Delete.Name = "Delete"
+Delete.Parent = Main
+Delete.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Delete.BorderSizePixel = 0
+Delete.Position = UDim2.new(-0.0922515392, 0, 0, 0)
+Delete.Size = UDim2.new(0.0906246603, 0, 0.139091566, 0)
+Delete.Font = Enum.Font.Cartoon
+Delete.Text = "X"
+Delete.TextColor3 = Color3.fromRGB(0, 0, 0)
+Delete.TextScaled = true
+Delete.TextSize = 14.000
+Delete.TextWrapped = true
+
+local function XFEB_fake_script()
 	local script = Instance.new('LocalScript', PinCode)
-	local LocalScript = Instance.new('LocalScript', Main)
+
+	local PinCode = script.Parent.Pinbox
+	local Pinframe = script.Parent.Parent.PinCode
+	local Comfirm = script.Parent.Comfirm
+	local frame = script.Parent.Parent.Auto
 	
+	Comfirm.MouseButton1Click:Connect(function()
+		if PinCode.Text == "12345" then
+			Comfirm.Text = "Correct Code."
+			wait(1)
+			frame.Visible = true
+			Pinframe.Visible = false
+		else
+			Comfirm.Text = "Wrong Code."
+			wait(1)
+			Comfirm.Text = "Correct?"
+		end
+	end)
+end
+coroutine.wrap(XFEB_fake_script)()
+local function LCHVXU_fake_script()
+	local script = Instance.new('LocalScript', Main)
+
 	local frame = script.Parent.Parent.Frame
 	local hotkey = Enum.KeyCode.V
 
 	local UIS = game:GetService("UserInputService")
 	local open = false
-	
+
+
+
 	UIS.InputBegan:Connect(function(key, gp)
 		if key.KeyCode == hotkey then
 			if UIS:GetFocusedTextBox() == nil then
@@ -255,22 +297,15 @@ local function RKKRZU_fake_script()
 			end
 		end
 	end)
+end
+coroutine.wrap(LCHVXU_fake_script)()
+local function ISDYVKZ_fake_script()
+	local script = Instance.new('LocalScript', Delete)
 
-	local PinCode = script.Parent.Pinbox
-	local Comfirm = script.Parent.Comfirm
-	local frame = script.Parent.Parent.Auto
-
-	Comfirm.MouseButton1Click:Connect(function()
-		if PinCode.Text == "12345" then
-			Comfirm.Text = "Correct Code."
-			wait(1)
-			PinCode.Visible = false
-			frame.Visible = true
-		else
-			Comfirm.Text = "Wrong Code."
-			wait(1)
-			Comfirm.Text = "Correct?"
-		end
+	local v_5 = script.Parent.Parent.Parent.Parent.Customers
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		v_5:Destroy()
 	end)
 end
-coroutine.wrap(RKKRZU_fake_script)()
+coroutine.wrap(ISDYVKZ_fake_script)()
