@@ -158,25 +158,25 @@ Auto_Drop.BorderSizePixel = 0
 Auto_Drop.Position = UDim2.new(0.0193084572, 0, 0.0451107882, 0)
 Auto_Drop.Size = UDim2.new(0.285336107, 0, 0.100407675, 0)
 Auto_Drop.Font = Enum.Font.GothamBlack
-Auto_Drop.Text = "Auto Drop(OFF)"
+Auto_Drop.Text = "Auto Drop"
 Auto_Drop.TextColor3 = Color3.fromRGB(0, 0, 0)
 Auto_Drop.TextScaled = true
 Auto_Drop.TextSize = 14.000
 Auto_Drop.TextWrapped = true
 Auto_Drop.MouseButton1Click:connect(function()
-	local plr = game:GetService('Players').LocalPlayer
+	local v = game:GetService('Players').LocalPlayer
 	
-	if Auto_Drop.Text == "Auto Drop(OFF)" then
-		Auto_Drop.Text = "Auto Drop(ON)"
-	else
-		Auto_Drop.Text = "Auto Drop(OFF)"
-	end
-	
-	getgenv().autodrop = plr
+	getfenv().autodrop = v
 	while true do
-		if not getgenv().autodrop then return end
+		if not getfenv().autodrop then return end
+		for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v:FindFirstChild('Wallet') then
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+				break
+			end
+		end
 		local A_1 = "DropMoney"
-		local A_2 = 10000
+		local A_2 = "10000"
 		local Event = game:GetService("ReplicatedStorage").MainEvent
 		Event:FireServer(A_1, A_2)
 		wait()
@@ -205,7 +205,7 @@ Anti_AFK.MouseButton1Click:connect(function()
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Anti - AFK";
 		Text = "Enabled (No timeout)";
-		Duration = 20;
+		Duration = 5;
 	})
 end)
 
@@ -251,7 +251,7 @@ Delete.TextScaled = true
 Delete.TextSize = 14.000
 Delete.TextWrapped = true
 
-local function XFEB_fake_script()
+local function HMPKPU_fake_script()
 	local script = Instance.new('LocalScript', PinCode)
 
 	local PinCode = script.Parent.Pinbox
@@ -272,14 +272,16 @@ local function XFEB_fake_script()
 		end
 	end)
 end
-coroutine.wrap(XFEB_fake_script)()
-local function LCHVXU_fake_script()
+coroutine.wrap(HMPKPU_fake_script)()
+local function SANSJJ_fake_script()
+	local script = Instance.new('LocalScript', Main)
+
 	local frame = script.Parent.Parent.Main
 	local hotkey = Enum.KeyCode.V
-
+	
 	local UIS = game:GetService("UserInputService")
 	local open = false
-
+	
 	UIS.InputBegan:Connect(function(key, gp)
 		if key.KeyCode == hotkey then
 			if UIS:GetFocusedTextBox() == nil then
@@ -294,14 +296,14 @@ local function LCHVXU_fake_script()
 		end
 	end)
 end
-coroutine.wrap(LCHVXU_fake_script)()
-local function ISDYVKZ_fake_script()
+coroutine.wrap(SANSJJ_fake_script)()
+local function BVWNY_fake_script()
 	local script = Instance.new('LocalScript', Delete)
 
-	local v_5 = Main
+	local main = script.Parent.Parent.Parent.Main
 	
 	script.Parent.MouseButton1Click:Connect(function()
-		v_5:Destroy()
+		main.Visible = false
 	end)
 end
-coroutine.wrap(ISDYVKZ_fake_script)()
+coroutine.wrap(BVWNY_fake_script)()
