@@ -311,7 +311,7 @@ local function BVWNY_fake_script()
 	local main = script.Parent.Parent.Parent.Main
 	
 	script.Parent.MouseButton1Click:Connect(function()
-		main.Visible = false
+		main:Destroy()
 	end)
 end
 coroutine.wrap(BVWNY_fake_script)()
