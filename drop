@@ -164,27 +164,30 @@ Auto_Drop.TextScaled = true
 Auto_Drop.TextSize = 14.000
 Auto_Drop.TextWrapped = true
 Auto_Drop.MouseButton1Click:connect(function()
-	local v = game:GetService('Players').LocalPlayer
+	local plr = game:GetService('Players').LocalPlayer
 	
-	if Auto_Drop.Text == "Auto Drop(OFF)" then
-		Auto_Drop.Text = "Auto Drop(ON)"
-		while true do
-			wait(5)
-			local A_1 = "DropMoney"
-			local A_2 = "10000"
-			local Event = game:GetService("ReplicatedStorage").MainEvent
-			Event:FireServer(A_1, A_2)
-		end
-	else
-		while wait(1) do
-			if v.DataFolder.Currency >= 700000000000 then
-				local A_1 = "DropMoney"
-				local A_2 = "700000000000"
-				local Event = game:GetService("ReplicatedStorage").MainEvent
-				Event:FireServer(A_1, A_2)
+	repeat wait() until plr.Character:FindFirstChild('Humanoid') or plr.Character:FindFirstChild('xxx')
+	local hum = plr.Character:FindFirstChild('Humanoid')
+	
+	Auto_Drop.Text = "Auto Drop(ON)"
+	
+	while wait() do
+		if plr.Character:FindFirstChild('Humanoid') or plr.Character:FindFirstChild('xxx') then
+			wait(.1)
+			if plr.DataFolder.Currency.Value >= 10000 then 
+				local AMT = 10000
+				game.ReplicatedStorage.MainEvent:FireServer("DropMoney",AMT)
+			elseif plr.DataFolder.Currency.Value <= 100 then 
+				wait()
+			else 
+				local AMT = plr.DataFolder.Currency.Value
+				game.ReplicatedStorage.MainEvent:FireServer("DropMoney",AMT)
+			end
+			if Auto_Drop.Text == "Auto Drop(ON)" and hum.Health > 0 then
+				Auto_Drop.Text = "Auto Drop(OFF)"
+				break
 			end
 		end
-		Auto_Drop.Text = "Auto Drop(OFF)"
 	end
 end)
 
