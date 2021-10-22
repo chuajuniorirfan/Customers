@@ -158,7 +158,7 @@ Auto_Drop.BorderSizePixel = 0
 Auto_Drop.Position = UDim2.new(0.0193084572, 0, 0.0451107882, 0)
 Auto_Drop.Size = UDim2.new(0.285336107, 0, 0.100407675, 0)
 Auto_Drop.Font = Enum.Font.GothamBlack
-Auto_Drop.Text = "Auto Drop"
+Auto_Drop.Text = "Auto Drop(OFF)"
 Auto_Drop.TextColor3 = Color3.fromRGB(0, 0, 0)
 Auto_Drop.TextScaled = true
 Auto_Drop.TextSize = 14.000
@@ -166,11 +166,17 @@ Auto_Drop.TextWrapped = true
 Auto_Drop.MouseButton1Click:connect(function()
 	local v = game:GetService('Players').LocalPlayer
 	
+	if Auto_Drop.Text == "Auto Drop(OFF)" then
+		Auto_Drop.Text = "Auto Drop(ON)"
+	else
+		Auto_Drop.Text = "Auto Drop(OFF)"
+	end
+	
 	getfenv().autodrop = v
 	while true do
 		if not getfenv().autodrop then return end
 		for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-			if v:FindFirstChild('Wallet') then
+			if v:FindFirstChild("Wallet") then
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
 				break
 			end
@@ -179,7 +185,7 @@ Auto_Drop.MouseButton1Click:connect(function()
 		local A_2 = "10000"
 		local Event = game:GetService("ReplicatedStorage").MainEvent
 		Event:FireServer(A_1, A_2)
-		wait()
+		wait(5)
 	end
 end)
 
